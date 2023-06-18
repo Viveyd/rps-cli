@@ -43,6 +43,10 @@ function game(rounds = 5){
         console.log(`Score: ${playerScore}-${computerScore}`);
         counter++;
     }
+    logWinner(playerScore, computerScore);
+}
+
+function logWinner(playerScore, computerScore){
     if(playerScore > computerScore){
         console.log("Player wins!");
     } else if (computerScore < playerScore) {
