@@ -1,0 +1,1 @@
+A CLI game of the classic Rock Paper Scissors!
