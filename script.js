@@ -17,8 +17,8 @@ function getComputerChoice(){
 function playOneRound(playerChoice, computerChoice){
     console.log(`You picked ${playerChoice}`);
     console.log(`Computer picked ${computerChoice}`);
-    let result = compareChoices(playerChoice, computerChoice);
-    return result;
+    let roundResult = compareChoices(playerChoice, computerChoice);
+    return roundResult;
 }
 
 function compareChoices(playerChoice, computerChoice){
