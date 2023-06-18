@@ -17,6 +17,11 @@ function getComputerChoice(){
 function playOneRound(playerChoice, computerChoice){
     console.log(`You picked ${playerChoice}`);
     console.log(`Computer picked ${computerChoice}`);
+    let result = compareChoices(playerChoice, computerChoice);
+    return result;
+}
+
+function compareChoices(playerChoice, computerChoice){
     let result = `You Win! ${capitalize(playerChoice)} beats ${capitalize(computerChoice)}`;
     if(playerChoice == computerChoice) result = "It's a draw!";
     else if(playerChoice == "rock" && computerChoice == "scissors") ;
