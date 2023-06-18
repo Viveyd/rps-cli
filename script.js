@@ -14,4 +14,8 @@ function getComputerChoice(){
     return computerChoice;
 }
 
+function playOneRound(playerChoice, computerChoice){
+    console.log(`Player picked ${playerChoice}. Computer picked ${computerChoice}`);
+}
+
 
