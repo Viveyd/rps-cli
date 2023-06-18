@@ -7,3 +7,9 @@ function getPlayerChoice(){
     }
     return playerChoice;
 }
+
+function getComputerChoice(){
+    const CHOICES = ["rock", "paper", "scissors"];
+    let computerChoice = CHOICES[Math.floor(Math.random() * 3)];
+    return computerChoice;
+}
