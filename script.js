@@ -15,12 +15,12 @@ function getComputerChoice(){
 }
 
 function playOneRound(playerChoice, computerChoice){
-    let result;
-    if(playerChoice == computerChoice) result = "It's a draw!"
-    else if(playerChoice == "rock" && computerChoice == "scissors") result = "Player wins!";
-    else if(playerChoice == "paper" && computerChoice == "rock") result = "Player wins!";
-    else if(playerChoice == "scissors" && computerChoice == "paper") result = "Player wins!";
-    else result = "Computer wins!";
+    let result = `You Win! ${capitalize(playerChoice)} beats ${capitalize(computerChoice)}`;
+    if(playerChoice == computerChoice) result = "It's a draw!";
+    else if(playerChoice == "rock" && computerChoice == "scissors") ;
+    else if(playerChoice == "paper" && computerChoice == "rock") ;
+    else if(playerChoice == "scissors" && computerChoice == "paper") ;
+    else result = `You Lost! ${capitalize(computerChoice)} beats ${capitalize(playerChoice)}`;
     return result;
 }
 
