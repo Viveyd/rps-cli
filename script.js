@@ -28,5 +28,27 @@ function capitalize(str){
     return str.slice(0,1).toUpperCase() + str.slice(1);
 }
 
+function game(rounds = 5){
+    let counter = 1;
+    let playerScore = 0;
+    let computerScore = 0;
+    while(counter <= rounds){
+        console.log(`Round ${counter}`)
+        let result = playOneRound(getPlayerChoice(), getComputerChoice());
+        console.log(result);
+        if(result.includes("Win")) playerScore++;
+        else if(result.includes("Lost")) computerScore++;
+        console.log(`Score: ${playerScore}-${computerScore}`);
+        counter++;
+    }
+    if(playerScore > computerScore){
+        console.log("Player wins!");
+    } else if (computerScore < playerScore) {
+        console.log("Computer wins!");
+    } else {
+        console.log("It's a draw!");
+    }
+}
+
 
 
