@@ -15,7 +15,13 @@ function getComputerChoice(){
 }
 
 function playOneRound(playerChoice, computerChoice){
-    console.log(`Player picked ${playerChoice}. Computer picked ${computerChoice}`);
+    let result;
+    if(playerChoice == computerChoice) result = "It's a draw!"
+    else if(playerChoice == "rock" && computerChoice == "scissors") result = "Player wins!";
+    else if(playerChoice == "paper" && computerChoice == "rock") result = "Player wins!";
+    else if(playerChoice == "scissors" && computerChoice == "paper") result = "Player wins!";
+    else result = "Computer wins!";
+    return result;
 }
 
 
