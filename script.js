@@ -14,6 +14,7 @@ startRoundBtn.addEventListener("click", (e) => startRound(e));
 
 // Add start screen with play and how many rounds
 const startScreen = document.createElement('div');
+startScreen.id = "start-screen";
 const startScreenElCon = document.createElement('div');
 startScreen.appendChild(startScreenElCon)
 const mainHeading = document.createElement('h1');
@@ -27,6 +28,8 @@ roundSetter.type = "number";
 roundSetter.max = 10;
 startScreenElCon.appendChild(roundSetter);
 document.body.appendChild(startScreen);
+
+//Make only startScreen displayed 
 
 
 
