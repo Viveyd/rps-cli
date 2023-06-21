@@ -1,7 +1,9 @@
 const CHOICES = ["rock", "paper", "scissors"];
-const [rockBtn, paperBtn, scissorsBtn] = [... document.querySelectorAll("button.picker")];
+const controlsCon = document.querySelector(".controls-con");
+const displaysCon = document.querySelector(".displays-con");
+const [rockBtn, paperBtn, scissorsBtn] = [... controlsCon.querySelectorAll("button.picker")];
 const startRoundBtn =  document.querySelector("button.starter")
-const [playerDisplay, compDisplay] = document.querySelectorAll("div.display");
+const [playerDisplay, compDisplay] = displaysCon.querySelectorAll("div.display");
 let playerPick, comPick;
 let score = [0,0];
 let round = 0;
@@ -31,7 +33,16 @@ document.body.appendChild(startScreen);
 
 //Make only startScreen displayed 
 
+startGameBtn.addEventListener("click", startGame)
 
+function startGame(){
+    score = [0,0];
+    round = 0;
+    maxRounds = Number(roundSetter.value);
+    startScreen.style.display = "none";
+    controlsCon.style.display = "block";
+    displaysCon.style.display = "block";
+}
 
 
 
