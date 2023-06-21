@@ -1,7 +1,7 @@
 const CHOICES = ["rock", "paper", "scissors"];
 const [rockBtn, paperBtn, scissorsBtn] = [... document.querySelectorAll("button")];
 const [playerDisplay, compDisplay] = document.querySelectorAll("div.display");
-let playerPick;
+let playerPick, comPick;
 let picked = false;
 
 rockBtn.addEventListener("click", (e) => updatePlayerPick(e, "rock"))
