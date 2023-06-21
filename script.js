@@ -10,6 +10,14 @@ rockBtn.addEventListener("click", (e) => updatePlayerPick(e, "rock"))
 paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"))
 scissorsBtn.addEventListener("click", (e) => updatePlayerPick(e, "scissors"))
 
+function updateScoreAndRound(roundResult){
+    console.log(roundResult);
+    round++;
+    if(roundResult.includes("Win")) score[0]++;
+    if(roundResult.includes("Lost")) score[1]++;
+    console.log(`Round ${round} over. Score is ${score[0]}-${score[1]}`);
+}
+
 function updatePlayerPick(e, pick){
     if(picked == true) return;
     playerPick = pick;
@@ -40,7 +48,6 @@ function playOneRound(playerChoice, computerChoice){
     console.log(`You picked ${playerChoice}`);
     console.log(`Computer picked ${computerChoice}`);
     let roundResult = determineWinner(playerChoice, computerChoice);
-    console.log(roundResult);
 }
 
 function determineWinner(playerChoice, computerChoice){
