@@ -12,11 +12,14 @@ function updatePlayerPick(e, pick){
     if(picked == true) return;
     playerPick = pick;
     picked = true;
+    updateComPick();
 }
 
 function updateComPick(){
     comPick = getComputerChoice();
 }
+
+
 
 function getPlayerChoice(){
     let playerChoice;
