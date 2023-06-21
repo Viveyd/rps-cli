@@ -12,20 +12,16 @@ paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"));
 scissorsBtn.addEventListener("click", (e) => updatePlayerPick(e, "scissors"));
 startRoundBtn.addEventListener("click", (e) => startRound(e));
 
-function updateScoreAndRound(roundResult){
-    console.log(roundResult);
-    round++;
-    if(roundResult.includes("Win")) score[0]++;
-    if(roundResult.includes("Lost")) score[1]++;
-    console.log(`Round ${round} over. Score is ${score[0]}-${score[1]}`);
-}
+// Add start screen with play and how many rounds
 
 function updatePlayerPick(e, pick){
     playerPick = pick;
+    // Update player pick img html.
 }
 
 function updateComPick(){
     comPick = getComputerChoice();
+    // Update com pick img html.
 }
 
 function startRound(){
@@ -36,18 +32,33 @@ function startRound(){
 function playOneRound(playerChoice, computerChoice){
     console.log(`You picked ${playerChoice}`);
     console.log(`Computer picked ${computerChoice}`);
+    // Animate closefist/rock transitio
     let roundResult = determineWinner(playerChoice, computerChoice);
     endRound(roundResult);
 }
 
 function endRound(roundResult){
+    // Some confetti maybe
     updateScoreAndRound(roundResult);
     if(round === maxRounds) endGame();
 }
 
 function endGame(){
-
+    // Announce winner / Add winner screen
+    // Some confetti maybe
+    // Go back to start screen
+    // Reset game state
 }
+
+function updateScoreAndRound(roundResult){
+    console.log(roundResult);
+    round++;
+    if(roundResult.includes("Win")) score[0]++;
+    if(roundResult.includes("Lost")) score[1]++;
+    console.log(`Round ${round} over. Score is ${score[0]}-${score[1]}`);
+    // Update scoreboard and round html.
+}
+
 
 function getComputerChoice(){
     let computerChoice = CHOICES[Math.floor(Math.random() * 3)];
