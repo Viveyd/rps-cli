@@ -5,6 +5,7 @@ const [playerDisplay, compDisplay] = document.querySelectorAll("div.display");
 let playerPick, comPick;
 let score = [0,0];
 let round = 0;
+let maxRounds = 5;
 
 rockBtn.addEventListener("click", (e) => updatePlayerPick(e, "rock"));
 paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"));
@@ -41,6 +42,11 @@ function playOneRound(playerChoice, computerChoice){
 
 function endRound(roundResult){
     updateScoreAndRound(roundResult);
+    if(round === maxRounds) endGame();
+}
+
+function endGame(){
+
 }
 
 function getComputerChoice(){
