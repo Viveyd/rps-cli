@@ -7,9 +7,10 @@ let score = [0,0];
 let round = 0;
 let picked = false;
 
-rockBtn.addEventListener("click", (e) => updatePlayerPick(e, "rock"))
-paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"))
-scissorsBtn.addEventListener("click", (e) => updatePlayerPick(e, "scissors"))
+rockBtn.addEventListener("click", (e) => updatePlayerPick(e, "rock"));
+paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"));
+scissorsBtn.addEventListener("click", (e) => updatePlayerPick(e, "scissors"));
+startRoundBtn.addEventListener("click", (e) => startRound(e));
 
 function updateScoreAndRound(roundResult){
     console.log(roundResult);
@@ -20,9 +21,12 @@ function updateScoreAndRound(roundResult){
 }
 
 function updatePlayerPick(e, pick){
-    if(picked == true) return;
+    // if(picked == true) return;
     playerPick = pick;
     picked = true;
+}
+
+function startRound(){
     updateComPick();
     playOneRound(playerPick, comPick);
 }
