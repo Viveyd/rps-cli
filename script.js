@@ -13,13 +13,12 @@ function updatePlayerPick(e, pick){
     playerPick = pick;
     picked = true;
     updateComPick();
+    playOneRound(playerPick, comPick);
 }
 
 function updateComPick(){
     comPick = getComputerChoice();
 }
-
-
 
 function getPlayerChoice(){
     let playerChoice;
@@ -39,7 +38,7 @@ function playOneRound(playerChoice, computerChoice){
     console.log(`You picked ${playerChoice}`);
     console.log(`Computer picked ${computerChoice}`);
     let roundResult = determineWinner(playerChoice, computerChoice);
-    return roundResult;
+    console.log(roundResult);
 }
 
 function determineWinner(playerChoice, computerChoice){
