@@ -48,6 +48,7 @@ function playOneRound(playerChoice, computerChoice){
     console.log(`You picked ${playerChoice}`);
     console.log(`Computer picked ${computerChoice}`);
     let roundResult = determineWinner(playerChoice, computerChoice);
+    updateScoreAndRound(roundResult);
 }
 
 function determineWinner(playerChoice, computerChoice){
