@@ -23,13 +23,24 @@ function updatePlayerPick(e, pick){
     playerPick = pick;
 }
 
+function updateComPick(){
+    comPick = getComputerChoice();
+}
+
 function startRound(){
     updateComPick();
     playOneRound(playerPick, comPick);
 }
 
-function updateComPick(){
-    comPick = getComputerChoice();
+function playOneRound(playerChoice, computerChoice){
+    console.log(`You picked ${playerChoice}`);
+    console.log(`Computer picked ${computerChoice}`);
+    let roundResult = determineWinner(playerChoice, computerChoice);
+    endRound(roundResult);
+}
+
+function endRound(roundResult){
+    updateScoreAndRound(roundResult);
 }
 
 function getPlayerChoice(){
@@ -45,14 +56,6 @@ function getComputerChoice(){
     let computerChoice = CHOICES[Math.floor(Math.random() * 3)];
     return computerChoice;
 }
-
-function playOneRound(playerChoice, computerChoice){
-    console.log(`You picked ${playerChoice}`);
-    console.log(`Computer picked ${computerChoice}`);
-    let roundResult = determineWinner(playerChoice, computerChoice);
-    updateScoreAndRound(roundResult);
-}
-
 function determineWinner(playerChoice, computerChoice){
     let result = `You Win! ${capitalize(playerChoice)} beats ${capitalize(computerChoice)}`;
     if(playerChoice == computerChoice) result = "It's a draw!";
