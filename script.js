@@ -5,7 +5,6 @@ const [playerDisplay, compDisplay] = document.querySelectorAll("div.display");
 let playerPick, comPick;
 let score = [0,0];
 let round = 0;
-let picked = false;
 
 rockBtn.addEventListener("click", (e) => updatePlayerPick(e, "rock"));
 paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"));
@@ -21,9 +20,7 @@ function updateScoreAndRound(roundResult){
 }
 
 function updatePlayerPick(e, pick){
-    // if(picked == true) return;
     playerPick = pick;
-    picked = true;
 }
 
 function startRound(){
