@@ -14,6 +14,10 @@ function updatePlayerPick(e, pick){
     picked = true;
 }
 
+function updateComPick(){
+    comPick = getComputerChoice();
+}
+
 function getPlayerChoice(){
     let playerChoice;
     while(true){
