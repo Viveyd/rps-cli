@@ -1,4 +1,9 @@
 const CHOICES = ["rock", "paper", "scissors"];
+const [rockBtn, paperBtn, scissorsBtn] = [... document.querySelectorAll("button")];
+const [playerDisplay, compDisplay] = document.querySelectorAll("div.display");
+
+
+
 
 function getPlayerChoice(){
     let playerChoice;
