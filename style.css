@@ -3,6 +3,8 @@ main{}
 body{
     height: 100vh;
     margin: 0;
+    padding: 0 10% 0 10%;
+    background-color: black;
 }
 
 .no-display {
@@ -16,8 +18,8 @@ body{
     align-items: center;
     gap: 32px;
     position: relative;
-    top: 40%;
-    transform: translateY(-50%);
+    background-color: #7552F2;
+    height: 100%;
 }
 
 #pre-game h1{
@@ -35,53 +37,84 @@ body{
 }
 
 main{
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: space-between;
+    background-color: #7552F2;
 }
+
 .gameboard{
-    position: absolute;
+    flex-basis: 250px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top: 28px;
+    gap: 16px;
+}
+.gameboard > * {
+    flex-grow: 1;
+    text-align: center;
+}
+.gameboard .roundboard{
+    font-size: 64px;
+}
+
+.gameboard .scoreboard{
+    font-size: 48px;
 }
 .displays-con{
     display: flex;
-   align-items: center;
-   justify-content: center;
+    justify-content: center;
     height: 100%;
+    gap: 48px;
 
 }
 .displays-con div{
     display: flex;
-    flex-grow: 1;
     height: 100%;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     box-sizing: border-box;
+    gap: 32px;
 }
 
-.displays-con > .display.player{
-    justify-content: flex-end;
-    padding-bottom: 64px;
+.displays-con span{
+    font-size: 48px;
 }
 
-.displays-con > .display.com{
-    justify-content: flex-start;
-    padding-top: 64px;
+.displays-con > span{
+    align-self: center;
+    font-size: 64px;
+    color: black;
 }
 
+.displays-con  .display.player span{
+    color: #DC143C;
+}
+
+.displays-con  .display.com span{
+    color: #F2E74B;
+}
 .display img{
     border: 1px solid red;
+    background-color: #D9D9D9;
     width: 400px;
     height: 400px;
 }
 
 
 .controls-con{
-    flex-basis: 100px;
-    border-top: 3px solid black;
+    flex: 1 0 170px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    gap: 58px;
+}
+
+.controls-con button{
+    width: 110px;
+    height: 110px;
+    background-color: #D9D9D9;
+    border: 0;
 }
