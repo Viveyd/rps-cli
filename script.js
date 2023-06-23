@@ -5,7 +5,6 @@ const startGameBtn = document.querySelector("#pre-game #start-game-btn");
 const controlsCon = document.querySelector(".controls-con");
 const displaysCon = document.querySelector(".displays-con");
 const [rockBtn, paperBtn, scissorsBtn] = [... controlsCon.querySelectorAll("button.picker")];
-const startRoundBtn =  document.querySelector("button.starter")
 const [playerDisplay, compDisplay] = displaysCon.querySelectorAll("div.display");
 let playerPick, comPick;
 let score = [0,0];
@@ -15,7 +14,6 @@ let maxRounds = 5;
 rockBtn.addEventListener("click", (e) => updatePlayerPick(e, "rock"));
 paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"));
 scissorsBtn.addEventListener("click", (e) => updatePlayerPick(e, "scissors"));
-startRoundBtn.addEventListener("click", (e) => startRound(e));
 rp1.addEventListener("click", addRound);
 rp2.addEventListener("click", reduceRound);
 startGameBtn.addEventListener("click", startGame);
