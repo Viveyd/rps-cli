@@ -14,27 +14,6 @@ paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"));
 scissorsBtn.addEventListener("click", (e) => updatePlayerPick(e, "scissors"));
 startRoundBtn.addEventListener("click", (e) => startRound(e));
 
-// Add start screen with play and how many rounds
-const startScreen = document.createElement('div');
-startScreen.id = "start-screen";
-const startScreenElCon = document.createElement('div');
-startScreen.appendChild(startScreenElCon)
-const mainHeading = document.createElement('h1');
-mainHeading.textContent = "Rock-Paper-Scissors";
-startScreenElCon.appendChild(mainHeading);
-const startGameBtn = document.createElement('button');
-startGameBtn.textContent = "Play"
-startScreenElCon.appendChild(startGameBtn);
-const roundSetter = document.createElement('input');
-roundSetter.type = "number";
-roundSetter.max = 10;
-startScreenElCon.appendChild(roundSetter);
-document.body.appendChild(startScreen);
-
-//Make only startScreen displayed 
-
-startGameBtn.addEventListener("click", startGame)
-
 function startGame(){
     score = [0,0];
     round = 0;
