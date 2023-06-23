@@ -1,4 +1,7 @@
 const CHOICES = ["rock", "paper", "scissors"];
+const [rp1, rp2] = [...document.querySelectorAll("#round-picker button")];
+const roundsPicked = document.querySelector("#round-picker span");
+const startGameBtn = document.querySelector("#pre-game #start-game-btn");
 const controlsCon = document.querySelector(".controls-con");
 const displaysCon = document.querySelector(".displays-con");
 const [rockBtn, paperBtn, scissorsBtn] = [... controlsCon.querySelectorAll("button.picker")];
@@ -13,18 +16,30 @@ rockBtn.addEventListener("click", (e) => updatePlayerPick(e, "rock"));
 paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"));
 scissorsBtn.addEventListener("click", (e) => updatePlayerPick(e, "scissors"));
 startRoundBtn.addEventListener("click", (e) => startRound(e));
+rp1.addEventListener("click", addRound);
+rp2.addEventListener("click", reduceRound);
+startGameBtn.addEventListener("click", startGame);
+
+
+
+function addRound(){
+    if(maxRounds < 10) maxRounds++;
+    roundsPicked.textContent = maxRounds;
+}
+
+function reduceRound(){
+    if(maxRounds > 1 )maxRounds--;
+    roundsPicked.textContent = maxRounds;
+}
 
 function startGame(){
     score = [0,0];
     round = 0;
-    maxRounds = Number(roundSetter.value);
-    startScreen.style.display = "none";
-    controlsCon.style.display = "block";
-    displaysCon.style.display = "block";
+    let preGameScreen = document.querySelector("#pre-game");
+    let mainScreen = document.querySelector("main");
+    preGameScreen.classList.add("no-display");
+    mainScreen.classList.remove("no-display");
 }
-
-
-
 
 function updatePlayerPick(e, pick){
     playerPick = pick;
