@@ -1,5 +1,10 @@
 main{}
 
+body{
+    height: 100vh;
+    margin: 0;
+}
+
 .no-display {
     display: none !important;
 }
@@ -10,6 +15,9 @@ main{}
     justify-content: center;
     align-items: center;
     gap: 32px;
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
 }
 
 #pre-game h1{
@@ -24,4 +32,22 @@ main{}
 #round-picker button{
     background: none;
     border: none;
+}
+
+main{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+.gameboard{
+    position: absolute;
+}
+.controls-con{
+    flex-basis: 100px;
+    border-top: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
