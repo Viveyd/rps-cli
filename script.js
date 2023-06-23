@@ -70,9 +70,9 @@ function playOneRound(playerChoice, computerChoice){
     endRound(winner);
 }
 
-function endRound(roundResult){
+function endRound(winner){
     // Some confetti maybe
-    updateScoreAndRound(roundResult);
+    updateScoreAndRound(winner);
     if(round === maxRounds) endGame();
 }
 
@@ -83,12 +83,9 @@ function endGame(){
     // Reset game state
 }
 
-function updateScoreAndRound(roundResult){
-    console.log(roundResult);
-    round++;
-    if(roundResult.includes("Win")) score[0]++;
-    if(roundResult.includes("Lost")) score[1]++;
-    console.log(`Round ${round} over. Score is ${score[0]}-${score[1]}`);
+function updateScoreAndRound(winner){
+    if(winner === "player") score[0]++;
+    if(winner === "com") score[1]++;
     // Update scoreboard and round html.
 }
 
