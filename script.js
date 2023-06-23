@@ -66,8 +66,8 @@ function playOneRound(playerChoice, computerChoice){
     console.log(`You picked ${playerChoice}`);
     console.log(`Computer picked ${computerChoice}`);
     // Animate closefist/rock transitio
-    let roundResult = determineWinner(playerChoice, computerChoice);
-    endRound(roundResult);
+    let winner = determineWinner(playerChoice, computerChoice);
+    endRound(winner);
 }
 
 function endRound(roundResult){
