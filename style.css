@@ -44,6 +44,40 @@ main{
 .gameboard{
     position: absolute;
 }
+.displays-con{
+    display: flex;
+   align-items: center;
+   justify-content: center;
+    height: 100%;
+
+}
+.displays-con div{
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    border: 2px solid green;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.displays-con > .display.player{
+    justify-content: flex-end;
+    padding-bottom: 64px;
+}
+
+.displays-con > .display.com{
+    justify-content: flex-start;
+    padding-top: 64px;
+}
+
+.display img{
+    border: 1px solid red;
+    width: 400px;
+    height: 400px;
+}
+
+
 .controls-con{
     flex-basis: 100px;
     border-top: 3px solid black;
