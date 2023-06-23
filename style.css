@@ -1,3 +1,5 @@
-.displays-con, .controls-con{
+main{}
+
+.no-display {
     display: none;
 }
