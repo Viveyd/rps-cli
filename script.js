@@ -96,15 +96,16 @@ function updateScoreAndRound(roundResult){
 function getComputerChoice(){
     let computerChoice = CHOICES[Math.floor(Math.random() * 3)];
     return computerChoice;
+
 }
 function determineWinner(playerChoice, computerChoice){
-    let result = `You Win! ${capitalize(playerChoice)} beats ${capitalize(computerChoice)}`;
-    if(playerChoice == computerChoice) result = "It's a draw!";
-    else if(playerChoice == "rock" && computerChoice == "scissors") ;
-    else if(playerChoice == "paper" && computerChoice == "rock") ;
-    else if(playerChoice == "scissors" && computerChoice == "paper") ;
-    else result = `You Lost! ${capitalize(computerChoice)} beats ${capitalize(playerChoice)}`;
-    return result;
+    let winner;
+    if(playerChoice == computerChoice) winner = null;
+    else if(playerChoice == "rock" && computerChoice == "scissors") winner = "player";
+    else if(playerChoice == "paper" && computerChoice == "rock") winner = "player";
+    else if(playerChoice == "scissors" && computerChoice == "paper") winner = "player";
+    else winner = "com";
+    return winner;
 }
 
 function capitalize(str){
