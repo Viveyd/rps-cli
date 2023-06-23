@@ -3,3 +3,25 @@ main{}
 .no-display {
     display: none;
 }
+
+#pre-game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+#pre-game h1{
+    margin: 0;
+}
+#round-picker{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#round-picker button{
+    background: none;
+    border: none;
+}
