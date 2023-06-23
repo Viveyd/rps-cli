@@ -65,7 +65,7 @@ function startRound(){
 function playOneRound(playerChoice, computerChoice){
     console.log(`You picked ${playerChoice}`);
     console.log(`Computer picked ${computerChoice}`);
-    // Animate closefist/rock transitio
+    // Animate closefist/rock transition to picks
     let winner = determineWinner(playerChoice, computerChoice);
     endRound(winner);
 }
@@ -78,6 +78,7 @@ function endRound(winner){
 
 function endGame(){
     // Announce winner / Add winner screen
+    
     // Some confetti maybe
     // Go back to start screen
     // Reset game state
