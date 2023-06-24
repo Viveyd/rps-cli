@@ -111,15 +111,15 @@ function endRound(winner){
     updateScoreAndRound(winner);
     // Round and scores displays are correct
     updateScoresHTML();
-    if(round === maxRounds+1) endGame();
+    if(round === maxRounds+1) endGame(winner);
     else setTimeout(() =>startNewRound(),1500);
     
 }
 
-function endGame(){
+function endGame(winner){
     // Announce winner / Add winner screen
     disableAllPickBtns();
-    showEndScreen();
+    showEndScreen(winner);
     // Some confetti maybe
     // Go back to start screen
     // Reset game state
@@ -132,8 +132,11 @@ function updateScoreAndRound(winner){
     // Update scoreboard and round html.
 }
 
-function showEndScreen(){
+function showEndScreen(winner){
+    const endMsg = winner === "player" ? "You Win!": winner === "com" ? "You Lost!": "Draw!";
+    document.querySelector(".end-screen h1").textContent = endMsg; 
     document.querySelector(".end-screen").classList.remove("no-display");
+
 }
 
 
