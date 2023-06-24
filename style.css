@@ -155,7 +155,7 @@ div.display> div > img{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.7)
+    background-color: rgba(0, 0, 0, 0.9)
 }
 
 .end-screen>div{
