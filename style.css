@@ -156,3 +156,9 @@ div.display> div > img{
     align-items: center;
     background-color: rgba(0, 0, 0, 0.7)
 }
+
+.end-screen div{
+    background-color: #D9D9D9;
+    border: 5px solid skyblue;
+    padding: 16px;
+}
