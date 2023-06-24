@@ -18,8 +18,6 @@ rp1.addEventListener("click", addRound);
 rp2.addEventListener("click", reduceRound);
 startGameBtn.addEventListener("click", startGame);
 
-
-
 function addRound(){
     if(maxRounds < 10) maxRounds++;
     roundsPicked.textContent = maxRounds;
@@ -65,7 +63,11 @@ function showAllBtns(){
     [rockBtn, paperBtn, scissorsBtn].forEach(btn => btn.classList.remove("no-display"));
 }
 function updateImgSrcOf(imgSrc, el){
-    el.src = imgSrc;
+    if(imgSrc === "") el.classList.add("no-display");
+    else {
+        el.classList.remove("no-display");
+        el.src = imgSrc;
+    }
 }
 
 function updateComPick(){
