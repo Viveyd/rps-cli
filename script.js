@@ -118,9 +118,8 @@ function endRound(winner){
     updateScoreAndRound(winner);
     // Round and scores displays are correct
     updateScoresHTML();
-    if(round === maxRounds+1) endGame(winner);
-    else setTimeout(() =>startNewRound(),1500);
-    
+    if(round === maxRounds+1) setTimeout(() =>endGame(winner),1000);
+    else setTimeout(() =>startNewRound(),1000);
 }
 
 function endGame(winner){
