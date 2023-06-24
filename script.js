@@ -96,10 +96,8 @@ function updateStatsHTML(){
 function playRound(e, pick){
     updatePlayerPick(pick);
     updateComPick();
-    // console.log(`You picked ${playerChoice}`);
-    // console.log(`Computer picked ${computerChoice}`);
     // Animate closefist/rock transition to picks
-    // let winner = determineWinner(playerChoice, computerChoice);
+    let winner = determineWinner();
     // endRound(winner);
 }
 
@@ -129,12 +127,12 @@ function getComputerChoice(){
     return computerChoice;
 
 }
-function determineWinner(playerChoice, computerChoice){
+function determineWinner(){
     let winner;
-    if(playerChoice == computerChoice) winner = null;
-    else if(playerChoice == "rock" && computerChoice == "scissors") winner = "player";
-    else if(playerChoice == "paper" && computerChoice == "rock") winner = "player";
-    else if(playerChoice == "scissors" && computerChoice == "paper") winner = "player";
+    if(playerPick == comPick) winner = null;
+    else if(playerPick == "rock" && comPick == "scissors") winner = "player";
+    else if(playerPick == "paper" && comPick == "rock") winner = "player";
+    else if(playerPick == "scissors" && comPick == "paper") winner = "player";
     else winner = "com";
     return winner;
 }
