@@ -32,7 +32,7 @@ function reduceRound(){
 
 function startGame(){
     score = [0,0];
-    round = 0;
+    round = 1;
     let preGameScreen = document.querySelector("#pre-game");
     let mainScreen = document.querySelector("main");
     preGameScreen.classList.add("no-display");
@@ -105,7 +105,8 @@ function endRound(winner){
     // Some confetti maybe
     updateScoreAndRound(winner);
     // if(round === maxRounds) endGame();
-    startNewRound();
+    setTimeout(() =>startNewRound(),1500);
+    
 }
 
 function endGame(){
@@ -117,6 +118,7 @@ function endGame(){
 }
 
 function updateScoreAndRound(winner){
+    round++;
     if(winner === "player") score[0]++;
     if(winner === "com") score[1]++;
     // Update scoreboard and round html.
