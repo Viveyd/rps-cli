@@ -118,6 +118,7 @@ function playRound(e, pick){
 function styleImgCons(winner){
     const playerImgCon = playerDisplay.querySelector("div");
     const comImgCon = compDisplay.querySelector("div");
+    if(winner === null) return ;
     const [winDiv, loseDiv] = winner === "player" ? [playerImgCon, comImgCon]: [comImgCon, playerImgCon];
     winDiv.classList.add("win");
     loseDiv.classList.add("lose");
@@ -136,14 +137,14 @@ function endRound(winner){
     updateScoreAndRound(winner);
     // Round and scores displays are correct
     updateScoresHTML();
-    if(round === maxRounds+1) setTimeout(() =>endGame(winner),1000);
+    if(round === maxRounds+1) setTimeout(() =>endGame(),1000);
     else setTimeout(() =>startNewRound(),1000);
 }
 
-function endGame(winner){
+function endGame(){
     // Announce winner / Add winner screen
     disableAllPickBtns();
-    showEndScreen(winner);
+    showEndScreen();
     // Some confetti maybe
     // Go back to start screen
     // Reset game state
@@ -156,8 +157,8 @@ function updateScoreAndRound(winner){
     // Update scoreboard and round html.
 }
 
-function showEndScreen(winner){
-    const endMsg = winner === "player" ? "You Win!": winner === "com" ? "You Lost!": "Draw!";
+function showEndScreen(){
+    const endMsg = score[0] > score[1] ? "You Win!": score[1] > score[0] ? "You Lost!": "Draw!";
     document.querySelector(".end-screen h1").textContent = endMsg; 
     document.querySelector(".end-screen").classList.remove("no-display");
 }
@@ -170,7 +171,7 @@ function getComputerChoice(){
 }
 function determineWinner(){
     let winner;
-    if(playerPick == comPick) winner = null;
+    if(playerPick === comPick) winner = null;
     else if(playerPick == "rock" && comPick == "scissors") winner = "player";
     else if(playerPick == "paper" && comPick == "rock") winner = "player";
     else if(playerPick == "scissors" && comPick == "paper") winner = "player";
