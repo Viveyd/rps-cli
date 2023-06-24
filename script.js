@@ -8,7 +8,7 @@ const [rockBtn, paperBtn, scissorsBtn] = [... controlsCon.querySelectorAll("butt
 const [playerDisplay, compDisplay] = displaysCon.querySelectorAll("div.display");
 let playerPick, comPick;
 let score = [0,0];
-let round = 0;
+let round = 1;
 let maxRounds = 5;
 
 rockBtn.addEventListener("click", (e) => playRound(e, "rock"));
@@ -37,6 +37,7 @@ function startGame(){
     let mainScreen = document.querySelector("main");
     preGameScreen.classList.add("no-display");
     mainScreen.classList.remove("no-display");
+    startNewRound();
 }
 
 function updatePlayerPick(pick){
@@ -73,12 +74,23 @@ function updateComPick(){
     updateImgSrcOf(ASSOCIATIVE[comPick], compDisplay.querySelector("div > img"));
 }
 
-function startRound(){
+function startNewRound(){
     // Round and scores displays are correct
+    updateStatsHTML();
     // Pick displays are empty
+    updateImgSrcOf("", playerDisplay.querySelector("div > img"));
+    updateImgSrcOf("", compDisplay.querySelector("div > img"));
     // All pick buttons are shown and enabled
-
+    showAllBtns();
+    enableAllPickBtns();
+    
     // In the future, pick displays should cycle through rps while waiting for pick
+}
+
+function updateStatsHTML(){
+    document.querySelector(".gameboard .cur-round").textContent = round;
+    document.querySelector(".gameboard .player-score").textContent = score[0];
+    document.querySelector(".gameboard .com-score").textContent = score[1];
 }
 
 function playRound(e, pick){
