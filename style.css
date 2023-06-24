@@ -115,6 +115,7 @@ main{
 div.display> div > img{
     width: 200px;
     height: 200px;
+    box-sizing: border-box;
 }
 
 
@@ -181,3 +182,13 @@ div.display> div > img{
     box-shadow: 1px 1px 1px 1px black;
 }
 
+.win{
+    border: 5px solid #FFA500;
+}
+
+.lose{
+    transition: scale 0.5s;
+    transition-delay:  0.2s;
+    border: 5px solid red;
+    scale: 0.8;
+}

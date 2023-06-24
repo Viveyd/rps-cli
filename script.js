@@ -89,6 +89,7 @@ function startNewRound(){
     // Pick displays are empty
     updateImgSrcOf("", playerDisplay.querySelector("div > img"));
     updateImgSrcOf("", compDisplay.querySelector("div > img"));
+    clearImgConStyles();
     // All pick buttons are shown and enabled
     showAllBtns();
     enableAllPickBtns();
@@ -110,7 +111,24 @@ function playRound(e, pick){
     updateComPick();
     // Animate closefist/rock transition to picks
     let winner = determineWinner();
+    styleImgCons(winner);
     endRound(winner);
+}
+
+function styleImgCons(winner){
+    const playerImgCon = playerDisplay.querySelector("div");
+    const comImgCon = compDisplay.querySelector("div");
+    const [winDiv, loseDiv] = winner === "player" ? [playerImgCon, comImgCon]: [comImgCon, playerImgCon];
+    winDiv.classList.add("win");
+    loseDiv.classList.add("lose");
+}
+
+function clearImgConStyles(){
+    const imgCons = [playerDisplay.querySelector("div"),  compDisplay.querySelector("div")];
+    imgCons.forEach(imgCon => {
+        imgCon.classList.remove("win");
+        imgCon.classList.remove("lose");
+    })
 }
 
 function endRound(winner){
