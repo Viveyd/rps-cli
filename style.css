@@ -183,12 +183,15 @@ div.display> div > img{
 }
 
 .win{
+    transition: scale 0.5s;
+    transition-delay:  0.2s;
     border: 5px solid #FFA500;
+    scale: 1.1;
 }
 
 .lose{
     transition: scale 0.5s;
     transition-delay:  0.2s;
     border: 5px solid red;
-    scale: 0.8;
+    scale: 0.9;
 }
