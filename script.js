@@ -59,6 +59,10 @@ function enableAllPickBtns(){
 function hideBtns(btns){
     btns.forEach(btn => btn.classList.add("no-display"));
 }
+
+function showAllBtns(){
+    [rockBtn, paperBtn, scissorsBtn].forEach(btn => btn.classList.remove("no-display"));
+}
 function updateImgSrcOf(imgSrc, el){
     el.src = imgSrc;
 }
@@ -67,6 +71,14 @@ function updateComPick(){
     comPick = getComputerChoice();
     const ASSOCIATIVE = {"rock": "./images/rock.png", "paper":"./images/paper.png", "scissors":"./images/scissors.png"};
     updateImgSrcOf(ASSOCIATIVE[comPick], compDisplay.querySelector("div > img"));
+}
+
+function startRound(){
+    // Round and scores displays are correct
+    // Pick displays are empty
+    // All pick buttons are shown and enabled
+
+    // In the future, pick displays should cycle through rps while waiting for pick
 }
 
 function playRound(e, pick){
