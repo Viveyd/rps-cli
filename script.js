@@ -11,9 +11,9 @@ let score = [0,0];
 let round = 0;
 let maxRounds = 5;
 
-rockBtn.addEventListener("click", (e) => updatePlayerPick(e, "rock"));
-paperBtn.addEventListener("click", (e) => updatePlayerPick(e, "paper"));
-scissorsBtn.addEventListener("click", (e) => updatePlayerPick(e, "scissors"));
+rockBtn.addEventListener("click", (e) => playRound(e, "rock"));
+paperBtn.addEventListener("click", (e) => playRound(e, "paper"));
+scissorsBtn.addEventListener("click", (e) => playRound(e, "scissors"));
 rp1.addEventListener("click", addRound);
 rp2.addEventListener("click", reduceRound);
 startGameBtn.addEventListener("click", startGame);
@@ -39,27 +39,44 @@ function startGame(){
     mainScreen.classList.remove("no-display");
 }
 
-function updatePlayerPick(e, pick){
+function updatePlayerPick(pick){
     playerPick = pick;
-    // Update player pick img html.
+    const ASSOCIATIVE = {"rock":[rockBtn, "./images/rock.png"], "paper":[paperBtn, "./images/paper.png"], "scissors":[scissorsBtn, "./images/scissors.png"]};
+    const btnsToHide = ["rock", "paper", "scissors"].filter(x => x !== pick).map(x => ASSOCIATIVE[x][0]);
+    disableAllPickBtns();
+    hideBtns(btnsToHide);
+    updateImgSrcOf(ASSOCIATIVE[pick][1], playerDisplay.querySelector("div > img"));
+}
+
+function disableAllPickBtns(){
+    [rockBtn, paperBtn, scissorsBtn].forEach(btn => btn.disabled = true);
+}
+
+function enableAllPickBtns(){
+    [rockBtn, paperBtn, scissorsBtn].forEach(btn => btn.disabled = false);
+}
+
+function hideBtns(btns){
+    btns.forEach(btn => btn.classList.add("no-display"));
+}
+function updateImgSrcOf(imgSrc, el){
+    el.src = imgSrc;
 }
 
 function updateComPick(){
     comPick = getComputerChoice();
-    // Update com pick img html.
+    const ASSOCIATIVE = {"rock": "./images/rock.png", "paper":"./images/paper.png", "scissors":"./images/scissors.png"};
+    updateImgSrcOf(ASSOCIATIVE[comPick], compDisplay.querySelector("div > img"));
 }
 
-function startRound(){
+function playRound(e, pick){
+    updatePlayerPick(pick);
     updateComPick();
-    playOneRound(playerPick, comPick);
-}
-
-function playOneRound(playerChoice, computerChoice){
-    console.log(`You picked ${playerChoice}`);
-    console.log(`Computer picked ${computerChoice}`);
+    // console.log(`You picked ${playerChoice}`);
+    // console.log(`Computer picked ${computerChoice}`);
     // Animate closefist/rock transition to picks
-    let winner = determineWinner(playerChoice, computerChoice);
-    endRound(winner);
+    // let winner = determineWinner(playerChoice, computerChoice);
+    // endRound(winner);
 }
 
 function endRound(winner){
