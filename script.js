@@ -17,6 +17,13 @@ scissorsBtn.addEventListener("click", (e) => playRound(e, "scissors"));
 rp1.addEventListener("click", addRound);
 rp2.addEventListener("click", reduceRound);
 startGameBtn.addEventListener("click", startGame);
+document.querySelector(".end-screen button").addEventListener("click", goToPregame);
+
+function goToPregame(){
+    document.querySelector("main").classList.add("no-display");
+    document.querySelector(".end-screen").classList.add("no-display");
+    document.querySelector("#pre-game").classList.remove("no-display");
+}
 
 function addRound(){
     if(maxRounds < 10) maxRounds++;
@@ -136,7 +143,6 @@ function showEndScreen(winner){
     const endMsg = winner === "player" ? "You Win!": winner === "com" ? "You Lost!": "Draw!";
     document.querySelector(".end-screen h1").textContent = endMsg; 
     document.querySelector(".end-screen").classList.remove("no-display");
-
 }
 
 
