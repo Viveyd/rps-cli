@@ -4,6 +4,7 @@ html{
 }
 
 body{
+    position: relative;
     height: 100vh;
     margin: 0;
     padding: 0 10% 0 10%;
@@ -142,4 +143,16 @@ div.display> div > img{
 
 .no-hover:hover{
     scale: 1;
+}
+
+.end-screen{
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7)
 }

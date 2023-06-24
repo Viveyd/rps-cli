@@ -119,6 +119,7 @@ function endRound(winner){
 function endGame(){
     // Announce winner / Add winner screen
     disableAllPickBtns();
+    showEndScreen();
     // Some confetti maybe
     // Go back to start screen
     // Reset game state
@@ -129,6 +130,10 @@ function updateScoreAndRound(winner){
     if(winner === "player") score[0]++;
     if(winner === "com") score[1]++;
     // Update scoreboard and round html.
+}
+
+function showEndScreen(){
+    document.querySelector(".end-screen").classList.remove("no-display");
 }
 
 
