@@ -36,6 +36,7 @@ function startGame(){
     preGameScreen.classList.add("no-display");
     mainScreen.classList.remove("no-display");
     startNewRound();
+    updateScoresHTML();
 }
 
 function updatePlayerPick(pick){
