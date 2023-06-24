@@ -77,8 +77,6 @@ function updateComPick(){
 }
 
 function startNewRound(){
-    // Round and scores displays are correct
-    updateStatsHTML();
     // Pick displays are empty
     updateImgSrcOf("", playerDisplay.querySelector("div > img"));
     updateImgSrcOf("", compDisplay.querySelector("div > img"));
@@ -106,14 +104,16 @@ function playRound(e, pick){
 function endRound(winner){
     // Some confetti maybe
     updateScoreAndRound(winner);
-    // if(round === maxRounds) endGame();
-    setTimeout(() =>startNewRound(),1500);
+    // Round and scores displays are correct
+    updateStatsHTML();
+    if(round === maxRounds+1) endGame();
+    else setTimeout(() =>startNewRound(),1500);
     
 }
 
 function endGame(){
     // Announce winner / Add winner screen
-    
+    disableAllPickBtns();
     // Some confetti maybe
     // Go back to start screen
     // Reset game state
