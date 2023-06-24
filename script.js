@@ -98,13 +98,14 @@ function playRound(e, pick){
     updateComPick();
     // Animate closefist/rock transition to picks
     let winner = determineWinner();
-    // endRound(winner);
+    endRound(winner);
 }
 
 function endRound(winner){
     // Some confetti maybe
     updateScoreAndRound(winner);
-    if(round === maxRounds) endGame();
+    // if(round === maxRounds) endGame();
+    startNewRound();
 }
 
 function endGame(){
