@@ -77,6 +77,7 @@ function updateComPick(){
 }
 
 function startNewRound(){
+    updateRoundHTML();
     // Pick displays are empty
     updateImgSrcOf("", playerDisplay.querySelector("div > img"));
     updateImgSrcOf("", compDisplay.querySelector("div > img"));
@@ -87,8 +88,11 @@ function startNewRound(){
     // In the future, pick displays should cycle through rps while waiting for pick
 }
 
-function updateStatsHTML(){
+function updateRoundHTML(){
     document.querySelector(".gameboard .cur-round").textContent = round;
+}
+
+function updateScoresHTML(){
     document.querySelector(".gameboard .player-score").textContent = score[0];
     document.querySelector(".gameboard .com-score").textContent = score[1];
 }
@@ -105,7 +109,7 @@ function endRound(winner){
     // Some confetti maybe
     updateScoreAndRound(winner);
     // Round and scores displays are correct
-    updateStatsHTML();
+    updateScoresHTML();
     if(round === maxRounds+1) endGame();
     else setTimeout(() =>startNewRound(),1500);
     
